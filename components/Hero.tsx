@@ -160,7 +160,7 @@ const Hero: React.FC = () => {
                         </div>
                         <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Current Role</span>
                      </div>
-                     <p className="font-bold text-gray-900 leading-tight">Lead Engineer <br />@ Seamless Auto</p>
+                     <p className="font-bold text-gray-900 leading-tight">Open for <br />Full-Stack Roles</p>
                   </motion.div>
                </motion.div>
             </motion.div>

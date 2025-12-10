@@ -83,7 +83,7 @@ export const EXPERIENCES: Experience[] = [
       "Integrated secure Paystack payments and real-time vote tracking."
     ],
     techStack: ["React", "Node.js", "Express", "MongoDB", "Paystack API", "TailwindCSS"],
-    link: "https://afrisata.com"
+    link: "https://www.afrisata.com"
   },
   {
     company: "Sunrise Water Park",
@@ -103,8 +103,8 @@ export const EXPERIENCES: Experience[] = [
     location: "Ojo, Lagos",
     period: "Oct 2020 – Jun 2023",
     description: [
-      "Pursued a Bachelor’s Degree in Computer Science with a focus on algorithms, databases & software engineering.",
-      "Built personal and open-source projects while mentoring junior developers through campus tech communities."
+      "Pursued a Bachelor’s Degree.",
+      "Built personal and open-source projects while mentoring junior developers through tech communities in Lagos."
     ],
     techStack: ["Algorithms", "Databases", "Software Engineering"]
   },
