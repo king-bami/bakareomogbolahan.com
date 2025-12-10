@@ -1,0 +1,17 @@
+# robots.txt for Bakare Omogbolahan's Portfolio
+# https://bakareomogbolahan.com
+
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Disallow crawling of specific directories (if any)
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /.git/
+
+# Sitemap location
+Sitemap: https://bakareomogbolahan.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+# Crawl-delay: 1
