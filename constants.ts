@@ -40,7 +40,7 @@ export const EXPERIENCES: Experience[] = [
       "Migrated the system from React to Next.js (SSR/SSG) to improve SEO, scalability, and performance for 2,500+ active users."
     ],
     techStack: ["Next.js", "Node.js", "Express", "MongoDB", "TailwindCSS", "JWT", "Socket.IO", "Paystack API", "AI Recommendation API"],
-    link: "https://seamlessautopart.netlify.app/"
+    link: "https://seamlesssautopart.netlify.app/"
   },
 
   {
