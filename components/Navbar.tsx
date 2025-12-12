@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
             {/* Mobile Toggle */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden p-2 text-gray-900"
+                className="md:hidden p-2 text-blue-700"
             >
                 {isOpen ? <X /> : <Menu />}
             </button>
@@ -142,7 +142,7 @@ const Navbar: React.FC = () => {
                     </div>
                     <div>
                          <h4 className="text-gray-500 text-xs uppercase tracking-widest mb-2">Email</h4>
-                         <a href={SOCIAL_LINKS.email} className="text-white hover:text-brand-400 break-words text-sm">gbolahan.bakare@attenda.africa</a>
+                         <a href={SOCIAL_LINKS.email} className="text-white hover:text-brand-400 break-words text-sm">contact@bakareomogbolahan.com</a>
                     </div>
                 </div>
             </motion.div>
