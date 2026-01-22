@@ -269,7 +269,7 @@ const Projects: React.FC = () => {
                                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold mb-4 tracking-wider">
                                         E-COMMERCE • AI
                                     </div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">Seamless Auto</h3>
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">Seamless Autoparts</h3>
 
                                     {/* Feature Highlight */}
                                     <div className="mb-4 bg-white p-3 rounded-lg border border-gray-200 shadow-sm">

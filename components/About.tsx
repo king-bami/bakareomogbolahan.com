@@ -42,7 +42,7 @@ const About: React.FC = () => {
                         transition={{ duration: 0.8 }}
                         className="lg:col-span-7"
                     >
-                        <div className="flex items-center gap-4 mb-6 overflow-hidden">
+                        <div className="flex items-center gap-4 mb-6 overflow">
                             <motion.span
                                 initial={{ scaleX: 0 }}
                                 whileInView={{ scaleX: 1 }}
@@ -59,7 +59,7 @@ const About: React.FC = () => {
                             >The Story</motion.span>
                         </div>
 
-                        <div className="overflow-hidden mb-8">
+                        <div className="overflow mb-8">
                             <motion.h2
                                 initial={{ y: 100, opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1 }}
@@ -77,7 +77,7 @@ const About: React.FC = () => {
                                 My journey began with a curiosity for how things work, which quickly evolved into a passion for building systems that work <i>better</i>.
                             </p>
                             <p>
-                                As the <strong className="text-gray-900">Ex-Founder & CTO of Attenda Africa</strong>, I didn't just write code; I navigated the complexities of product-market fit, user acquisition, and scaling infrastructure to support thousands of active users nationwide. This entrepreneurial experience gives me a unique edge—I build software with the business outcome in mind.
+                                As the <strong className="text-gray-900">Ex-Founder & CTO of Attenda Africa</strong>, I didn't just write code; I navigated the complexities of product market fit, user acquisition, and scaling infrastructure to support thousands of active users nationwide. This entrepreneurial experience gives me a unique edge, I build software with the business outcome in mind.
                             </p>
                             <p>
                                 When I'm not architecting cloud-native solutions, I'm deeply invested in the tech community. From being a Google Open Source Mentee to mentoring the next generation of developers, I believe in lifting others as we climb.
