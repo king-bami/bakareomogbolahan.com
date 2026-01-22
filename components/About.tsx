@@ -42,15 +42,35 @@ const About: React.FC = () => {
                         transition={{ duration: 0.8 }}
                         className="lg:col-span-7"
                     >
-                        <div className="flex items-center gap-4 mb-6">
-                            <span className="h-[1px] w-12 bg-gray-300"></span>
-                            <span className="text-sm font-bold uppercase tracking-widest text-brand-600">The Story</span>
+                        <div className="flex items-center gap-4 mb-6 overflow-hidden">
+                            <motion.span
+                                initial={{ scaleX: 0 }}
+                                whileInView={{ scaleX: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                                className="h-[1px] w-12 bg-gray-300 origin-left"
+                            ></motion.span>
+                            <motion.span
+                                initial={{ y: 20, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                                className="text-sm font-bold uppercase tracking-widest text-brand-600"
+                            >The Story</motion.span>
                         </div>
 
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                            More than just a <br />
-                            <span className="text-black text-stroke-2 text-gray-900">Senior Engineer</span>.
-                        </h2>
+                        <div className="overflow-hidden mb-8">
+                            <motion.h2
+                                initial={{ y: 100, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+                                className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
+                            >
+                                More than just a <br />
+                                <span className="text-black text-stroke-2 text-gray-900">Senior Engineer</span>.
+                            </motion.h2>
+                        </div>
 
                         <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                             <p>

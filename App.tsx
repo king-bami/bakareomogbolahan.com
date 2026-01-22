@@ -29,16 +29,16 @@ function App() {
       <Navbar />
       <main>
         {/* 1. Introduction: Who I am */}
-        <Hero />
+        <Hero isLoaderActive={loading} />
 
         <Experience />
-         <Testimonials />
-         <Projects />
+        <Testimonials />
+        <Projects />
 
         {/* 2. Instant Trust: High-level endorsement */}
-       
+
         {/* 3. The Proof: Show the work immediately */}
-       
+
 
         {/* 4. The Scale: Quantitative Impact */}
         <Stats />
@@ -47,26 +47,26 @@ function App() {
         <Services />
 
         {/* 6. The Method: How I do it (Technical Assurance) */}
-       
-         <About />
+
+        <About />
 
         {/* 9. Expertise Breakdown */}
         <Skills />
 
-         <Process />
+        <Process />
 
         {/* 7. The History: Resume & Track Record */}
-        
+
 
         {/* 8. The Story: Founder & Community Leader */}
-       
+
 
         {/* 10. More Social Proof */}
-       
+
 
         {/* 11. Final Call to Action */}
         <Contact />
-         <FeaturedEndorsement />
+        <FeaturedEndorsement />
 
       </main>
       <Footer />

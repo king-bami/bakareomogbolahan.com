@@ -1,10 +1,16 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, FileDown } from 'lucide-react';
 import { SOCIAL_LINKS } from '../constants';
 import meImage from '../me2.jpg';
+import { AnimatedText } from './ui/animated-text';
+import { cn } from '../lib/utils';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+   isLoaderActive?: boolean;
+}
+
+const Hero: React.FC<HeroProps> = ({ isLoaderActive = false }) => {
    const PROFILE_IMAGE = meImage;
    const containerRef = useRef<HTMLDivElement>(null);
 
@@ -39,6 +45,30 @@ const Hero: React.FC = () => {
       y.set(0);
    };
 
+   // Animation Variants
+   const containerVariants = {
+      hidden: { opacity: 0 },
+      visible: {
+         opacity: 1,
+         transition: {
+            staggerChildren: 0.15,
+            delayChildren: 0.1,
+         },
+      },
+   };
+
+   const itemVariants = {
+      hidden: { y: 100, opacity: 0 },
+      visible: {
+         y: 0,
+         opacity: 1,
+         transition: {
+            duration: 0.8,
+            ease: [0.25, 1, 0.5, 1]
+         },
+      },
+   };
+
    return (
       <section
          ref={containerRef}
@@ -54,15 +84,14 @@ const Hero: React.FC = () => {
 
             {/* Text Content - Left Side */}
             <motion.div
-               initial={{ opacity: 0, x: -50 }}
-               animate={{ opacity: 1, x: 0 }}
-               transition={{ duration: 0.8, ease: "easeOut" }}
+               variants={containerVariants}
+               initial="hidden"
+               animate={isLoaderActive ? "hidden" : "visible"}
+               viewport={{ once: true, amount: 0.3 }}
                className="order-2 lg:order-1 flex flex-col items-start text-left"
             >
                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
+                  variants={itemVariants}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm text-brand-900 text-sm font-bold tracking-wide uppercase mb-8"
                >
                   <span className="relative flex h-2.5 w-2.5">
@@ -72,23 +101,43 @@ const Hero: React.FC = () => {
                   Available for new projects
                </motion.div>
 
-               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
-                  Hi, I'm <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-900">
-                     Omogbolahan.
-                  </span>
-               </h1>
+               <div className="mb-6 w-full">
+                  <AnimatedText
+                     text="Hi, I'm Omogbolahan."
+                     className="items-start justify-start w-full"
+                     textClassName="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 leading-[1.1] tracking-tight text-left"
+                     underlineGradient="from-brand-600 via-brand-800 to-brand-950"
+                     underlineHeight="h-1.5"
+                     underlineOffset="-bottom-2"
+                     shouldAnimate={!isLoaderActive}
+                  />
+               </div>
 
-               <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-xl leading-relaxed">
-                  Senior Full Stack Engineer & Founder building scalable, impact-driven platforms. Expert in Next.js, Node.js, and AI solutions.
-               </p>
+               <div className="overflow-hidden mb-10 w-full">
+                  <motion.p
+                     variants={itemVariants}
+                     className="text-xl md:text-2xl text-gray-600 max-w-xl leading-relaxed"
+                  >
+                     Senior Full Stack Engineer & Founder building <span className="text-gray-900 font-semibold underline decoration-brand-200 underline-offset-4">scalable, impact-driven platforms</span>. Expert in Next.js, Node.js, and AI solutions.
+                  </motion.p>
+               </div>
 
-               <div className="flex flex-col sm:flex-row gap-4 mb-12 w-full sm:w-auto">
+               <motion.div
+                  variants={itemVariants}
+                  className="flex flex-col sm:flex-row flex-wrap gap-4 mb-12 w-full sm:w-auto"
+               >
                   <a
                      href="#projects"
-                     className="px-8 py-4 bg-brand-900 text-white rounded-full font-bold hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2"
+                     className="px-8 py-4 bg-brand-900 text-white rounded-full font-bold hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 group"
                   >
-                     View My Work <ArrowRight size={20} />
+                     View My Work <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </a>
+                  <a
+                     href="/Omogbolahan_Bakare_Full_2Page_CV.pdf"
+                     download
+                     className="px-8 py-4 bg-white text-brand-900 border-2 border-brand-900 rounded-full font-bold hover:bg-brand-50 transition-all hover:-translate-y-1 flex items-center justify-center gap-2 group"
+                  >
+                     Download CV <FileDown size={20} className="group-hover:translate-y-0.5 transition-transform" />
                   </a>
                   <a
                      href={SOCIAL_LINKS.email}
@@ -96,9 +145,12 @@ const Hero: React.FC = () => {
                   >
                      Contact Me <Mail size={20} />
                   </a>
-               </div>
+               </motion.div>
 
-               <div className="flex items-center gap-8 text-gray-400">
+               <motion.div
+                  variants={itemVariants}
+                  className="flex items-center gap-8 text-gray-400"
+               >
                   <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="hover:text-brand-900 transition-colors transform hover:scale-110">
                      <Github size={28} />
                   </a>
@@ -107,13 +159,13 @@ const Hero: React.FC = () => {
                   </a>
                   <div className="h-px w-16 bg-gray-300 hidden sm:block"></div>
                   <span className="text-sm font-mono text-gray-500 tracking-widest uppercase hidden sm:block">Based in Nigeria</span>
-               </div>
+               </motion.div>
             </motion.div>
 
             {/* Image Content - Right Side */}
             <motion.div
                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-               animate={{ opacity: 1, scale: 1, y: 0 }}
+               animate={isLoaderActive ? { opacity: 0, scale: 0.95 } : { opacity: 1, scale: 1, y: 0 }}
                transition={{ duration: 0.8, delay: 0.3 }}
                className="order-1 lg:order-2 flex justify-center lg:justify-end relative"
                style={{
